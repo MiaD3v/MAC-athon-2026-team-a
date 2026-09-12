@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            College Survey
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                font-family: "JetBrains Mono", monospace;
+            }
+            html {
+                background-color: #282828;
+                color: #ebdbb2;
+            }
+            img {
+                border-radius: 5%;
+                border-style: solid;
+            }
+            #main_container {
+                margin-left: 5%;
+                display: grid;
+                place-content: center;
+            }
+            .horizontal {
+                display: flex;
+                flex-direction: row;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div id="main_container">
+            {%- for college in colleges %}
+            <div>
+                <div class="horizontal">
+                    <div>
+                        <h2>{{ college.name|safe }}</h2>
+                        <img src="{{ college['imglink']|safe }}" alt="Campus Photo" width=30%>
+                        </img>
+                        <ul>
+                            <h3>School Stats</h3>
+                            {%- for k, v in college["general"].items() %}
+                            <li><b>{{ k|safe }}</b>: {{ v|safe }}</li>
+                            {% endfor %}
+                            <h3>Weather</h3>
+                            {%- for k, v in college["weather"].items() %}
+                            <li><b>{{ k|safe }}</b>: {{ v|safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div class="center_div_pls">
+    </body>
+
+</html>

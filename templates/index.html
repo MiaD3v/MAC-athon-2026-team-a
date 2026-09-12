@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: lightsteelblue;
+                color: #000;
+            }
+            .home-container {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                max-width: 800px;
+                margin: 80px auto;
+                background-color: white;
+                padding: 50px;
+                border-radius: 30px;
+                text-align: left;
+              }
+            .navbar {
+            background-color: #2f4f6f;
+            padding: 20px;
+            text-align: center;
+            }
+            .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 32px;
+            }
+            .start-button {
+                display: inline-block;
+                margin-top: 25px;
+                padding: 15px 40px;
+                background-color: #6366F1;
+                color: white;
+                text-decoration: none;
+                border-radius: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .start-button:hover {
+                background-color: #4338CA;
+            }
+            .survey_form {
+                
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            College Survey
+        </title>
+    </head>
+
+    <body>       
+
+        <div class="navbar">
+            <h1>What do you want from a college?</h1>
+        </div>
+        <div class="home-container">
+            <div class="survey_form"></div>
+                <form action="/survey/" method="POST">
+                    {{ form.csrf_token }}
+                    <p>
+                        {{ form.city.label }}
+                        <br>
+                        {{ form.city() }}
+                    </p>
+
+                    <p>
+                        {{ form.school_size.label }}
+                        <br>
+                        {{ form.school_size() }}
+                    </p>
+
+                    <p>
+                        {{ form.act_score.label }}
+                        <br>
+                        {{ form.act_score() }}
+                    </p>
+
+                    <p>
+                        {{ form.sat_score.label }}
+                        <br>
+                        {{ form.sat_score() }}
+                    </p>
+
+                    <p>
+                        {{ form.state.label }}
+                        <br>
+                        {{ form.state() }}
+                    </p>
+
+                    <p>
+                        {{ form.region.label }}
+                        <br>
+                        {{ form.region() }}
+                    </p>
+                    <p>
+                        {{ form.city_type.label }}
+                        <br>
+                        {{ form.city_type() }}
+                    </p>
+                    <p>
+                        {{ form.acceptance_min.label }}
+                        <br>
+                        {{ form.acceptance_min()}}
+                    </p>
+                    <p>
+                        {{ form.acceptance_max.label }}
+                        <br>
+                        {{ form.acceptance_max()}}
+                    </p>
+
+                    <p>
+                        {{ form.instate_min.label }}
+                        <br>
+                        {{ form.instate_min()}}
+                    </p>
+                    <p>
+                        {{ form.instate_max.label }}
+                        <br>
+                        {{ form.instate_max()}}
+                    </p>
+                    <p>
+                        {{ form.outstate_min.label }}
+                        <br>
+                        {{ form.outstate_min()}}
+                    </p>
+                    <p>
+                        {{ form.outstate_max.label }}
+                        <br>
+                        {{ form.outstate_max()}}
+                    </p>
+
+                    <p>
+                        {{ form.submit_field(class = "start-button") }}
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
